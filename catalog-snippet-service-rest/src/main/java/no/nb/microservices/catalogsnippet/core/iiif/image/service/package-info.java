@@ -1,0 +1,1 @@
+package no.nb.microservices.catalogsnippet.core.iiif.image.service;
