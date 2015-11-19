@@ -1,29 +1,25 @@
 package no.nb.microservices.catalogsnippet.rest.controller;
 
-import no.nb.microservices.catalogsnippet.Application;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
-public class HomeControllerTest {
+public class SnippetControllerTest {
 
     private MockMvc mockMvc;
 
-    private HomeController homeController;
+    private SnippetController homeController;
 
     @Before
     public void setup() {
-        homeController = new HomeController();
+        homeController = new SnippetController();
         mockMvc = MockMvcBuilders.standaloneSetup(homeController).build();
     }
 
