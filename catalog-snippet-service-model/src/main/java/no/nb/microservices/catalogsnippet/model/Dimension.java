@@ -1,18 +1,16 @@
-package no.nb.microservices.catalogsnippet.core.catalog.contentsearch.model;
+package no.nb.microservices.catalogsnippet.model;
 
-public class SentenceInfo {
-    private String sentence;
+public class Dimension {
     private int x;
     private int y;
     private int w;
     private int h;
 
-    public String getSentence() {
-        return sentence;
-    }
-
-    public void setSentence(String sentence) {
-        this.sentence = sentence;
+    public Dimension(int x, int y, int w, int h) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
     }
 
     public int getX() {

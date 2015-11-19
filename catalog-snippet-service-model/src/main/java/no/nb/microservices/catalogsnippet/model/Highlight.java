@@ -1,21 +1,14 @@
 package no.nb.microservices.catalogsnippet.model;
 
+import java.util.List;
+
 public class Highlight {
     private String sentence;
-    private int x;
-    private int y;
-    private int w;
-    private int h;
+    private List<Dimension> dimension;
 
-    public Highlight() {
-    }
-
-    public Highlight(String sentence, int x, int y, int w, int h) {
+    public Highlight(String sentence, List<Dimension> dimension) {
         this.sentence = sentence;
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
+        this.dimension = dimension;
     }
 
     public String getSentence() {
@@ -26,35 +19,11 @@ public class Highlight {
         this.sentence = sentence;
     }
 
-    public double getX() {
-        return x;
+    public List<Dimension> getDimension() {
+        return dimension;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getW() {
-        return w;
-    }
-
-    public void setW(int w) {
-        this.w = w;
-    }
-
-    public int getH() {
-        return h;
-    }
-
-    public void setH(int h) {
-        this.h = h;
+    public void setDimension(List<Dimension> dimension) {
+        this.dimension = dimension;
     }
 }

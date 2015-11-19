@@ -1,40 +1,27 @@
 package no.nb.microservices.catalogsnippet.core.image.model;
 
+import no.nb.microservices.catalogsnippet.model.Dimension;
+import no.nb.microservices.catalogsnippet.model.Highlight;
+
+import java.util.List;
+
 public class SnippetBox {
-    private int x;
-    private int y;
-    private int w;
-    private int h;
+    private Dimension dimension;
+    private List<Highlight> highlights;
 
-    public int getX() {
-        return x;
+    public Dimension getDimension() {
+        return dimension;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setDimension(Dimension dimension) {
+        this.dimension = dimension;
     }
 
-    public int getY() {
-        return y;
+    public List<Highlight> getHighlights() {
+        return highlights;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getW() {
-        return w;
-    }
-
-    public void setW(int w) {
-        this.w = w;
-    }
-
-    public int getH() {
-        return h;
-    }
-
-    public void setH(int h) {
-        this.h = h;
+    public void setHighlights(List<Highlight> highlights) {
+        this.highlights = highlights;
     }
 }

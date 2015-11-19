@@ -6,9 +6,6 @@ public class Snippet {
     private String imageUrl;
     private List<Highlight> highlights;
 
-    public Snippet() {
-    }
-
     public Snippet(String imageUrl, List<Highlight> highlights) {
         this.imageUrl = imageUrl;
         this.highlights = highlights;
