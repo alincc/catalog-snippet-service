@@ -12,8 +12,6 @@ endpoints:
 server:
   port: 8107
 
-spring:  
-
 eureka:
   instance:
     preferIpAddress: true
