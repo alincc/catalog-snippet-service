@@ -1,10 +1,13 @@
 package no.nb.microservices.catalogsnippet.core.catalog.contentsearch.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PageInfo {
     private String pageId;
-    private List<HighlightInfo> hightlights;
+    private int width;
+    private int height;
+    private List<HighlightInfo> highlightInfos = new ArrayList<>();
 
     public String getPageId() {
         return pageId;
@@ -14,11 +17,31 @@ public class PageInfo {
         this.pageId = pageId;
     }
 
-    public List<HighlightInfo> getHightlights() {
-        return hightlights;
+    public int getWidth() {
+        return width;
     }
 
-    public void setHightlights(List<HighlightInfo> hightlights) {
-        this.hightlights = hightlights;
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public List<HighlightInfo> getHighlightInfos() {
+        return highlightInfos;
+    }
+
+    public void setHighlightInfos(List<HighlightInfo> highlightInfos) {
+        this.highlightInfos = highlightInfos;
+    }
+
+    public void addHighlightInfo(HighlightInfo highlightInfo) {
+        highlightInfos.add(highlightInfo);
     }
 }

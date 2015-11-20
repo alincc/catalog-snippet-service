@@ -1,14 +1,19 @@
 package no.nb.microservices.catalogsnippet.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Highlight {
     private String sentence;
-    private List<Dimension> dimension;
+    private List<Dimension> dimensions;
 
-    public Highlight(String sentence, List<Dimension> dimension) {
+    public Highlight(String sentence, List<Dimension> dimensions) {
         this.sentence = sentence;
-        this.dimension = dimension;
+        this.dimensions = dimensions;
     }
 
     public String getSentence() {
@@ -19,11 +24,11 @@ public class Highlight {
         this.sentence = sentence;
     }
 
-    public List<Dimension> getDimension() {
-        return dimension;
+    public List<Dimension> getDimensions() {
+        return dimensions;
     }
 
-    public void setDimension(List<Dimension> dimension) {
-        this.dimension = dimension;
+    public void setDimensions(List<Dimension> dimensions) {
+        this.dimensions = dimensions;
     }
 }

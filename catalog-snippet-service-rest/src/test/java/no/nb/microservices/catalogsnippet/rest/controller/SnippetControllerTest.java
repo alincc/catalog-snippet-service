@@ -25,7 +25,7 @@ public class SnippetControllerTest {
 
     @Test
     public void helloWorldTest() throws Exception{
-        mockMvc.perform(get("/"))
+        mockMvc.perform(get("/catalog/snippet"))
                 .andExpect(status().isOk());
     }
 

@@ -1,14 +1,11 @@
 package no.nb.microservices.catalogsnippet.core.iiif.image.model;
 
 public class ImageInfo {
-    private int height;
     private int width;
+    private int height;
 
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
+    public ImageInfo(int width, int height) {
+        this.width = width;
         this.height = height;
     }
 
@@ -18,5 +15,13 @@ public class ImageInfo {
 
     public void setWidth(int width) {
         this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }
