@@ -3,13 +3,20 @@ package no.nb.microservices.catalogsnippet.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Highlight {
     private String sentence;
-    private List<Dimension> dimensions;
+    private List<Dimension> dimensions = new ArrayList<>();
+
+
+    public Highlight(String sentence, Dimension dimension) {
+        this.sentence = sentence;
+        this.dimensions.add(dimension);
+    }
 
     public Highlight(String sentence, List<Dimension> dimensions) {
         this.sentence = sentence;

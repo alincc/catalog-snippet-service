@@ -22,6 +22,10 @@
             <artifactId>catalog-snippet-service-rest</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-ribbon</artifactId>
+        </dependency>
 
         <!-- Testing -->
         <dependency>
