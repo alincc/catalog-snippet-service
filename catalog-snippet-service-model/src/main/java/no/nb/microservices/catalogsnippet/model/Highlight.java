@@ -12,6 +12,9 @@ public class Highlight {
     private String sentence;
     private List<Dimension> dimensions = new ArrayList<>();
 
+    public Highlight() {
+
+    }
 
     public Highlight(String sentence, Dimension dimension) {
         this.sentence = sentence;

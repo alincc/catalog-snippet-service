@@ -24,7 +24,7 @@ public class ContentSearchService implements IContentSearchService {
     @Autowired
     public ContentSearchService(ContentSearchRepository contentSearchRepository, RestTemplate restTemplate) {
         this.contentSearchRepository = contentSearchRepository;
-        this.restTemplate = new RestTemplate();
+        this.restTemplate = restTemplate;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class ContentSearchService implements IContentSearchService {
         String pageId = info[0];
         Dimension dimension = new Dimension(Integer.parseInt(dimensions[0]),Integer.parseInt(dimensions[1]),
                 Integer.parseInt(dimensions[2]),Integer.parseInt(dimensions[3]));
-        ResponseEntity<Canvas> entity = restTemplate.getForEntity(annotation.getOn(), Canvas.class);
+        ResponseEntity<Canvas> entity = restTemplate.getForEntity("http://catalog-iiif-presentation-service/catalog/iiif/{id}/canvas/{pageid}", Canvas.class,annotation.getId(),pageId);
         int height = entity.getBody().getImages().get(0).getResource().getHeight();
         int width = entity.getBody().getImages().get(0).getResource().getWidth();
 

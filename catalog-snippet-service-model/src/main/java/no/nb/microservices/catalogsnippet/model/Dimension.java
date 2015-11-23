@@ -11,6 +11,10 @@ public class Dimension {
     private int w;
     private int h;
 
+    public Dimension() {
+
+    }
+
     public Dimension(int x, int y, int w, int h) {
         this.x = x;
         this.y = y;
