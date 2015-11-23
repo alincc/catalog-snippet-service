@@ -6,5 +6,5 @@ import no.nb.microservices.catalogsnippet.core.image.model.SnippetBox;
 import java.util.List;
 
 public interface SnippetBoxCalculator {
-    List<SnippetBox> findSnippetBoxes(PageInfo pageInfo);
+    List<SnippetBox> findSnippetBoxes(PageInfo pageInfo, int snippetLines);
 }

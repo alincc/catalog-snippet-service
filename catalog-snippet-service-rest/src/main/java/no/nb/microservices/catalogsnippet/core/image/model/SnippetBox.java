@@ -7,14 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SnippetBox {
+    private String pageId;
     private Dimension dimension;
     private List<Highlight> highlights = new ArrayList<>();
 
-    public SnippetBox(Dimension dimension, Highlight highlight) {
+    public SnippetBox(String pageId, Dimension dimension, Highlight highlight) {
+        this.pageId = pageId;
         this.dimension = dimension;
         this.highlights.add(highlight);
     }
-
 
     public SnippetBox(Dimension dimension, List<Highlight> highlights) {
         this.dimension = dimension;
@@ -35,5 +36,13 @@ public class SnippetBox {
 
     public void setHighlights(List<Highlight> highlights) {
         this.highlights = highlights;
+    }
+
+    public String getPageId() {
+        return pageId;
+    }
+
+    public void setPageId(String pageId) {
+        this.pageId = pageId;
     }
 }

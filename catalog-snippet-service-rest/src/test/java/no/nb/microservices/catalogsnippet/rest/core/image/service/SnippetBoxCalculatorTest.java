@@ -26,7 +26,7 @@ public class SnippetBoxCalculatorTest {
                 .withHighlight(1147, 1670, 148, 37)
                 .build();
 
-        List<SnippetBox> snippetBoxes = calculator.findSnippetBoxes(pageInfo);
+        List<SnippetBox> snippetBoxes = calculator.findSnippetBoxes(pageInfo, 3);
 
         assertEquals(1, snippetBoxes.size());
         SnippetBox snippetBox = snippetBoxes.get(0);
@@ -48,7 +48,7 @@ public class SnippetBoxCalculatorTest {
                 .withHighlight(1147, 1670, 148, 37)
                 .build();
 
-        List<SnippetBox> snippetBoxes = calculator.findSnippetBoxes(pageInfo);
+        List<SnippetBox> snippetBoxes = calculator.findSnippetBoxes(pageInfo, 3);
 
         SnippetBox snippetBox = snippetBoxes.get(0);
 
