@@ -54,7 +54,7 @@ public class ContentSearchServiceTest {
         Canvas canvas = new Canvas(new NullContext(),"1234","label",1,2,Arrays.asList(a4));
         ResponseEntity<Canvas> entity = new ResponseEntity<>(canvas, HttpStatus.OK);
         when(contentSearchRepository.search("1234","kaffe")).thenReturn(al);
-        when(restTemplate.getForEntity(anyString(),eq(Canvas.class))).thenReturn(entity);
+        when(restTemplate.getForEntity(anyString(),eq(Canvas.class),anyString(), anyString())).thenReturn(entity);
 
         List<PageInfo> infos = contentSearchService.findQueryOccurrences("1234", "kaffe");
         assertEquals("Should contain 2 pageinfos", 2, infos.size());
