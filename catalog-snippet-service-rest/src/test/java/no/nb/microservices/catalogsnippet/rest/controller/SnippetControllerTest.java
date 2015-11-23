@@ -1,6 +1,5 @@
 package no.nb.microservices.catalogsnippet.rest.controller;
 
-import no.nb.microservices.catalogsnippet.config.ApplicationSettings;
 import no.nb.microservices.catalogsnippet.core.iiif.service.IContentSearchService;
 import no.nb.microservices.catalogsnippet.core.image.service.SnippetBoxCalculator;
 import org.junit.Before;
@@ -27,12 +26,9 @@ public class SnippetControllerTest {
     @Mock
     private SnippetBoxCalculator snippetBoxCalculator;
 
-    @Mock
-    private ApplicationSettings settings;
-
     @Before
     public void setup() {
-        homeController = new SnippetController(contentSearchService, snippetBoxCalculator, settings);
+        homeController = new SnippetController(contentSearchService, snippetBoxCalculator);
         mockMvc = MockMvcBuilders.standaloneSetup(homeController).build();
     }
 

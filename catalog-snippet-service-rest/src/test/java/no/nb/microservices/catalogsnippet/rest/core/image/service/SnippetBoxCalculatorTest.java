@@ -20,8 +20,6 @@ public class SnippetBoxCalculatorTest {
     public void snippetBoxDefaultTest() {
         SnippetQuery snippetQuery = new SnippetQuery("URN:NBN:no-nb_digibok_2014020626009", "donald", 10, 10, 3);
 
-        SnippetBoxCalculator calculator = new SimpleSnippetBoxCalculator();
-
         PageInfo pageInfo = new PageInfoBuilder()
                 .withPageId("URN:NBN:no-nb_digibok_2014020626009_0003")
                 .withDimension(1458, 1969)
@@ -30,14 +28,21 @@ public class SnippetBoxCalculatorTest {
                 .withHighlight(1147, 1670, 148, 37)
                 .build();
 
+        int expectedX = 0;
+        int expectedY = 1556; // ((1608+(39/2))-(((39*snippetQuery.getLines())*1.2)/2))
+        int expectedWidth = 1458;
+        int expectedHeight = 140; // (39*snippetQuery.getLines())*1.2
+
+        SnippetBoxCalculator calculator = new SimpleSnippetBoxCalculator();
         List<SnippetBox> snippetBoxes = calculator.findSnippetBoxes(Arrays.asList(pageInfo), snippetQuery);
 
         assertEquals(1, snippetBoxes.size());
         SnippetBox snippetBox = snippetBoxes.get(0);
-        assertEquals(1458, snippetBox.getDimension().getW());
-        assertEquals((int)((39*3)*1.2), snippetBox.getDimension().getH());
-        assertEquals(0, snippetBox.getDimension().getX());
-        assertEquals((int)((1608+(39/2))-(((39*snippetQuery.getLines())*1.2)/2)), snippetBox.getDimension().getY());
+
+        assertEquals(expectedX, snippetBox.getDimension().getX());
+        assertEquals(expectedY, snippetBox.getDimension().getY());
+        assertEquals(expectedWidth, snippetBox.getDimension().getW());
+        assertEquals(expectedHeight, snippetBox.getDimension().getH());
     }
 
     @Test

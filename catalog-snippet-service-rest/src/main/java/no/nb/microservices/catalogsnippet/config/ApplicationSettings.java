@@ -7,13 +7,4 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "snippet")
 public class ApplicationSettings {
 
-    private String iiifImageRootUrl;
-
-    public String getIiifImageRootUrl() {
-        return iiifImageRootUrl;
-    }
-
-    public void setIiifImageRootUrl(String iiifImageRootUrl) {
-        this.iiifImageRootUrl = iiifImageRootUrl;
-    }
 }

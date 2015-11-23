@@ -17,16 +17,15 @@ public class SnippetBuilderTest {
         Highlight highlight = new Highlight("donald", highlightDimension);
 
         Dimension snippetDimension = new Dimension(0, 1300, 1458, 256);
-        SnippetBox snippetBox = new SnippetBox("URN:NBN:no-nb_digibok_2014020626009_0003", snippetDimension, highlight);
+        SnippetBox snippetBox = new SnippetBox("http://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2014020626009_0003", snippetDimension, highlight);
 
         Snippet snippet = new SnippetBuilder(snippetBox)
                 .withItemId("URN:NBN:no-nb_digibok_2014020626009")
-                .withIIIFImageRootUrl("http://www.nb.no/services/image/resolver/")
                 .build();
 
         Dimension snippetOutputDim = snippet.getHighlights().get(0).getDimensions().get(0);
         assertEquals("URN:NBN:no-nb_digibok_2014020626009", snippet.getItemId());
-        assertEquals("URN:NBN:no-nb_digibok_2014020626009_0003", snippet.getPageId());
+        assertEquals("http://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2014020626009_0003", snippet.getPageId());
         assertEquals(409, snippetOutputDim.getX());
         assertEquals(100, snippetOutputDim.getY());
         assertEquals(138, snippetOutputDim.getW());

@@ -7,7 +7,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 public class SnippetBuilder {
     private Snippet snippet;
-    private String iifImageUrl;
     private Dimension sDim;
 
     public SnippetBuilder(SnippetBox snippetBox) {
@@ -23,14 +22,8 @@ public class SnippetBuilder {
         return this;
     }
 
-    public SnippetBuilder withIIIFImageRootUrl(String iifImageUrl) {
-        this.iifImageUrl = iifImageUrl;
-        return this;
-    }
-
     public Snippet build() {
-        String urlString = UriComponentsBuilder.fromUriString(iifImageUrl)
-                .path(snippet.getPageId() + "/")
+        String urlString = UriComponentsBuilder.fromUriString(snippet.getPageId() + "/")
                 .path(sDim.getX() + "," + sDim.getY() + "," + sDim.getW() + "," + sDim.getH() + "/")
                 .path("full"  + "/")
                 .path("0" + "/") // Rotation

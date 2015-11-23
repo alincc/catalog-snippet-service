@@ -1,6 +1,5 @@
 package no.nb.microservices.catalogsnippet.rest.controller;
 
-import no.nb.microservices.catalogsnippet.config.ApplicationSettings;
 import no.nb.microservices.catalogsnippet.core.iiif.model.PageInfo;
 import no.nb.microservices.catalogsnippet.core.iiif.service.IContentSearchService;
 import no.nb.microservices.catalogsnippet.core.image.service.SnippetBoxCalculator;
@@ -25,13 +24,11 @@ public class SnippetController {
 
     private final IContentSearchService contentSearchService;
     private final SnippetBoxCalculator snippetBoxCalculator;
-    private final ApplicationSettings settings;
 
     @Autowired
-    public SnippetController(IContentSearchService contentSearchService, SnippetBoxCalculator snippetBoxCalculator, ApplicationSettings settings) {
+    public SnippetController(IContentSearchService contentSearchService, SnippetBoxCalculator snippetBoxCalculator) {
         this.contentSearchService = contentSearchService;
         this.snippetBoxCalculator = snippetBoxCalculator;
-        this.settings = settings;
     }
 
     @RequestMapping(value = "/snippet", method = RequestMethod.GET)
@@ -42,7 +39,6 @@ public class SnippetController {
         snippets.addAll(snippetBoxCalculator.findSnippetBoxes(queryOccurrences, snippetQuery).stream()
                 .map(snippetBox -> new SnippetBuilder(snippetBox)
                 .withItemId(snippetQuery.getId())
-                .withIIIFImageRootUrl(settings.getIiifImageRootUrl())
                 .build()).collect(Collectors.toList()));
 
         return new ResponseEntity<>(snippets, HttpStatus.OK);
