@@ -10,7 +10,7 @@ endpoints:
     enabled: true
 
 server:
-  port: 8107
+  port: 8108
 
 eureka:
   instance:

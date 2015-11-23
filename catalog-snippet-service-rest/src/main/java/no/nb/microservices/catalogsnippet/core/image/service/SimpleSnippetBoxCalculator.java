@@ -1,15 +1,17 @@
 package no.nb.microservices.catalogsnippet.core.image.service;
 
-import no.nb.microservices.catalogsnippet.core.catalog.contentsearch.model.HighlightInfo;
-import no.nb.microservices.catalogsnippet.core.catalog.contentsearch.model.PageInfo;
+import no.nb.microservices.catalogsnippet.core.iiif.model.HighlightInfo;
+import no.nb.microservices.catalogsnippet.core.iiif.model.PageInfo;
 import no.nb.microservices.catalogsnippet.core.image.model.SnippetBox;
 import no.nb.microservices.catalogsnippet.model.Dimension;
 import no.nb.microservices.catalogsnippet.model.Highlight;
 import no.nb.microservices.catalogsnippet.model.SnippetQuery;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class SimpleSnippetBoxCalculator implements SnippetBoxCalculator {
     @Override
     public List<SnippetBox> findSnippetBoxes(List<PageInfo> pageInfos, SnippetQuery snippetQuery) {

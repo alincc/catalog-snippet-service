@@ -1,8 +1,8 @@
 package no.nb.microservices.catalogsnippet.rest.controller;
 
-import no.nb.microservices.catalogsnippet.config.ApplicationSettings;
-import no.nb.microservices.catalogsnippet.core.catalog.contentsearch.model.PageInfo;
-import no.nb.microservices.catalogsnippet.core.catalog.contentsearch.service.ContentSearchService;
+import no.nb.microservices.catalogsnippet.core.iiif.model.PageInfo;
+import no.nb.microservices.catalogsnippet.core.iiif.service.IContentSearchService;
+import no.nb.microservices.catalogsnippet.core.image.model.SnippetBox;
 import no.nb.microservices.catalogsnippet.core.image.service.SnippetBoxCalculator;
 import no.nb.microservices.catalogsnippet.model.Snippet;
 import no.nb.microservices.catalogsnippet.model.SnippetQuery;
@@ -25,13 +25,12 @@ import java.util.stream.Collectors;
 @RequestMapping("/catalog")
 public class SnippetController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(SnippetController.class);
-    private final ContentSearchService contentSearchService;
+    private final IContentSearchService contentSearchService;
     private final SnippetBoxCalculator snippetBoxCalculator;
     private final ApplicationSettings settings;
 
     @Autowired
-    public SnippetController(ContentSearchService contentSearchService, SnippetBoxCalculator snippetBoxCalculator, ApplicationSettings settings) {
+    public SnippetController(IContentSearchService contentSearchService, SnippetBoxCalculator snippetBoxCalculator) {
         this.contentSearchService = contentSearchService;
         this.snippetBoxCalculator = snippetBoxCalculator;
         this.settings = settings;
