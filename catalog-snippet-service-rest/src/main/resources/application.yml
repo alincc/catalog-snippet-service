@@ -19,6 +19,9 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
+snippet:
+  iiifImageRootUrl: http://www.nb.no/services/image/resolver/
+
 ---
 spring:
     profiles: docker

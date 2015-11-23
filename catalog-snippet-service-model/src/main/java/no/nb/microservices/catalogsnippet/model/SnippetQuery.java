@@ -27,6 +27,22 @@ public class SnippetQuery {
     @Min(1)
     private int lines = 3;
 
+    public SnippetQuery() {
+    }
+
+    public SnippetQuery(String id, String query) {
+        this.id = id;
+        this.query = query;
+    }
+
+    public SnippetQuery(String id, String query, int maxSize, int maxPerPage, int lines) {
+        this.id = id;
+        this.query = query;
+        this.maxSize = maxSize;
+        this.maxPerPage = maxPerPage;
+        this.lines = lines;
+    }
+
     public String getId() {
         return id;
     }
