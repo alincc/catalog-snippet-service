@@ -1,0 +1,68 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://api.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV17",
+  "@type": "sc:Canvas",
+  "label": "PAGE",
+  "height": 2281,
+  "width": 3259,
+  "images": [
+    {
+      "@id": "http://api.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/annotation/URN:NBN:no-nb_digibok_2014062707144_0017",
+      "@type": "oa:Annotation",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2014062707144_0017",
+        "@type": "dctypes:Image",
+        "format": "image/jpeg",
+        "service": {
+          "@context": "http://iiif.io/api/image/1/context.json",
+          "@id": "http://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2014062707144_0017",
+          "protocol": "http://iiif.io/api/image",
+          "width": 3259,
+          "height": 2281,
+          "sizes": [
+            {
+              "width": 1629,
+              "height": 1140
+            },
+            {
+              "width": 814,
+              "height": 570
+            },
+            {
+              "width": 407,
+              "height": 285
+            },
+            {
+              "width": 203,
+              "height": 142
+            },
+            {
+              "width": 101,
+              "height": 71
+            }
+          ],
+          "tiles": [
+            {
+              "width": 1024,
+              "scaleFactors": [
+                1,
+                2,
+                4,
+                8,
+                16,
+                32
+              ]
+            }
+          ],
+          "profile": [
+            "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0"
+          ]
+        },
+        "height": 2281,
+        "width": 3259
+      },
+      "on": "http://api.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV17"
+    }
+  ]
+}

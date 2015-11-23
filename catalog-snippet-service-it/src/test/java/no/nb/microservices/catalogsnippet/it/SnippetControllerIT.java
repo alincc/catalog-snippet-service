@@ -7,8 +7,9 @@ import com.squareup.okhttp.mockwebserver.Dispatcher;
 import com.squareup.okhttp.mockwebserver.MockResponse;
 import com.squareup.okhttp.mockwebserver.MockWebServer;
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
+import no.nb.commons.web.util.UserUtils;
 import no.nb.microservices.catalogsnippet.Application;
-import okio.Buffer;
+import no.nb.microservices.catalogsnippet.model.Snippet;
 import org.apache.commons.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -21,17 +22,12 @@ import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 
@@ -61,19 +57,21 @@ public class SnippetControllerIT {
         mockWebServer = new MockWebServer();
 
         // Read mock data
-        String mock1 = IOUtils.toString(new ClassPathResource("mock1.json").getInputStream());
+        String contentSearch1 = IOUtils.toString(new ClassPathResource("contentsearch-1.json").getInputStream());
+        String presentation1 = IOUtils.toString(new ClassPathResource("presentation-1.json").getInputStream());
+        String presentation2 = IOUtils.toString(new ClassPathResource("presentation-2.json").getInputStream());
 
         final Dispatcher dispatcher = new Dispatcher() {
             @Override
             public MockResponse dispatch(RecordedRequest request) throws InterruptedException {
-                if (request.getPath().equals("/service1/method1")) {
-                    return new MockResponse().setBody(mock1).setHeader("Content-Type", "application/hal+json; charset=utf-8");
+                if (request.getPath().contains("/catalog/contentsearch/0b8501b8e2b822c8ec13558de82aaef9/search?q=publikum")) {
+                    return new MockResponse().setBody(contentSearch1).setHeader("Content-Type", "application/hal+json; charset=utf-8");
                 }
-                else if (request.getPath().equals("/service1/method2")) {
-                    return new MockResponse().setBody(mock1).setHeader("Content-Type", "application/hal+json; charset=utf-8");
+                else if (request.getPath().contains("/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3")) {
+                    return new MockResponse().setBody(presentation1).setHeader("Content-Type", "application/hal+json; charset=utf-8");
                 }
-                else if (request.getPath().equals("/service2/method1")) {
-                    return new MockResponse().setBody(mock1).setHeader("Content-Type", "application/hal+json; charset=utf-8");
+                else if (request.getPath().contains("/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV17")) {
+                    return new MockResponse().setBody(presentation2).setHeader("Content-Type", "application/hal+json; charset=utf-8");
                 } else {
                     return new MockResponse().setResponseCode(404);
                 }
@@ -92,23 +90,24 @@ public class SnippetControllerIT {
     }
 
     @Test
-    public void helloWorldTest() throws URISyntaxException {
-        URI uri = new URI("http://localhost:" + port + "/");
-        ResponseEntity<String> response = rest.getForEntity(uri, String.class);
-        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    public void getDefaultSnippets() throws URISyntaxException {
+//        URI uri = new URI("http://localhost:" + port + "/catalog/snippet?id=0b8501b8e2b822c8ec13558de82aaef9&query=publikum");
+//        ResponseEntity<String> response = rest.getForEntity(uri, String.class);
+
+        HttpHeaders headers = defaultHeaders();
+
+        ResponseEntity<Snippet[]> entity = new TestRestTemplate().exchange(
+                "http://localhost:" + port + "/catalog/snippet?id=0b8501b8e2b822c8ec13558de82aaef9&query=publikum",
+                HttpMethod.GET, new HttpEntity<Void>(headers), Snippet[].class);
+
+        assertEquals(HttpStatus.OK, entity.getStatusCode());
     }
 
-    private MockResponse getMockResponse(String path) {
-        Buffer buffer = new Buffer();
-        try {
-            InputStream inputStream = new ClassPathResource(path).getInputStream();
-            ByteArrayResource byteArrayResource = new ByteArrayResource(IOUtils.toByteArray(inputStream));
-            buffer.write(byteArrayResource.getByteArray());
-        }
-        catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-        return new MockResponse().setBody(buffer);
+    private HttpHeaders defaultHeaders() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(UserUtils.SSO_HEADER, "token");
+        headers.add(UserUtils.REAL_IP_HEADER, "123.45.100.1");
+        return headers;
     }
 }
 

@@ -30,10 +30,10 @@ public class SnippetBuilder {
 
     public Snippet build() {
         String urlString = UriComponentsBuilder.fromUriString(iifImageUrl)
-                .path(snippet.getPageId())
-                .path(sDim.getX() + "," + sDim.getY() + "," + sDim.getW() + "," + sDim.getH())
-                .path("full" )
-                .path("0") // Rotation
+                .path(snippet.getPageId() + "/")
+                .path(sDim.getX() + "," + sDim.getY() + "," + sDim.getW() + "," + sDim.getH() + "/")
+                .path("full"  + "/")
+                .path("0" + "/") // Rotation
                 .path("native.jpg")
                 .build()
                 .toUriString();

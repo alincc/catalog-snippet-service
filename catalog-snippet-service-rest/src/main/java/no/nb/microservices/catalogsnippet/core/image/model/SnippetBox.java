@@ -22,6 +22,12 @@ public class SnippetBox {
         this.highlights = highlights;
     }
 
+    public SnippetBox(String pageId, Dimension dimension, List<Highlight> highlights) {
+        this.pageId = pageId;
+        this.dimension = dimension;
+        this.highlights = highlights;
+    }
+
     public Dimension getDimension() {
         return dimension;
     }
