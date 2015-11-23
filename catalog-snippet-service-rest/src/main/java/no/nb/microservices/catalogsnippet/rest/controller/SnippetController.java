@@ -1,14 +1,12 @@
 package no.nb.microservices.catalogsnippet.rest.controller;
 
+import no.nb.microservices.catalogsnippet.config.ApplicationSettings;
 import no.nb.microservices.catalogsnippet.core.iiif.model.PageInfo;
 import no.nb.microservices.catalogsnippet.core.iiif.service.IContentSearchService;
-import no.nb.microservices.catalogsnippet.core.image.model.SnippetBox;
 import no.nb.microservices.catalogsnippet.core.image.service.SnippetBoxCalculator;
 import no.nb.microservices.catalogsnippet.model.Snippet;
 import no.nb.microservices.catalogsnippet.model.SnippetQuery;
 import no.nb.microservices.catalogsnippet.rest.assembler.SnippetBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +28,7 @@ public class SnippetController {
     private final ApplicationSettings settings;
 
     @Autowired
-    public SnippetController(IContentSearchService contentSearchService, SnippetBoxCalculator snippetBoxCalculator) {
+    public SnippetController(IContentSearchService contentSearchService, SnippetBoxCalculator snippetBoxCalculator, ApplicationSettings settings) {
         this.contentSearchService = contentSearchService;
         this.snippetBoxCalculator = snippetBoxCalculator;
         this.settings = settings;
