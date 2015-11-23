@@ -7,6 +7,7 @@ public class SnippetBuilder {
     private Snippet snippet;
 
     public SnippetBuilder(SnippetBox snippetBox) {
+        this.snippet = new Snippet();
         this.snippet.setPageId(snippetBox.getPageId());
         this.snippet.setHighlights(snippetBox.getHighlights());
     }

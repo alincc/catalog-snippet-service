@@ -24,7 +24,7 @@ public class ContentSearchService implements IContentSearchService {
     @Autowired
     public ContentSearchService(ContentSearchRepository contentSearchRepository, RestTemplate restTemplate) {
         this.contentSearchRepository = contentSearchRepository;
-        this.restTemplate = restTemplate;
+        this.restTemplate = new RestTemplate();
     }
 
     @Override

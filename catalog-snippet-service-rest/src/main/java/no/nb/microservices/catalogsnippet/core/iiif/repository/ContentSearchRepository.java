@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient("catalog-content-search-service")
+@FeignClient("catalog-iiif-content-search")
 public interface ContentSearchRepository {
 
     @RequestMapping(method = RequestMethod.GET, value = "/catalog/contentsearch/{id}/search")
