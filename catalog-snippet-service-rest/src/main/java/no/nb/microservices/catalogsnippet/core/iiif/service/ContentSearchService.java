@@ -59,7 +59,7 @@ public class ContentSearchService implements IContentSearchService {
         int width = entity.getBody().getImages().get(0).getResource().getWidth();
 
         PageInfo pageInfo = new PageInfoBuilder()
-                .withPageId(pageId)
+                .withPageId(entity.getBody().getImages().get(0).getResource().getId())
                 .withDimension(width, height)
                 .withHighlight(query,Arrays.asList(dimension)).build();
 

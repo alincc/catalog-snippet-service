@@ -45,10 +45,8 @@ public class ContentSearchServiceTest {
         a1.setOn("http://snoppen.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#909,493,1346,592");
         Annotation a2 = new Annotation();
         a2.setOn("http://snoppen.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#400,1657,558,1717");
-        Annotation a3 = new Annotation();
-        a3.setOn("http://snoppen.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV17#2198,187,2378,247");
         AnnotationList al = new AnnotationList();
-        al.setResources(Arrays.asList(a1,a2,a3));
+        al.setResources(Arrays.asList(a1,a2));
 
         no.nb.microservices.iiifpresentation.model.Annotation a4 = new no.nb.microservices.iiifpresentation.model.Annotation(new NullContext(),"1234","http://hej",new Resource("1",1234,321,null));
         Canvas canvas = new Canvas(new NullContext(),"1234","label",1,2,Arrays.asList(a4));
@@ -57,7 +55,7 @@ public class ContentSearchServiceTest {
         when(restTemplate.getForEntity(anyString(),eq(Canvas.class),anyString(), anyString())).thenReturn(entity);
 
         List<PageInfo> infos = contentSearchService.findQueryOccurrences("1234", "kaffe");
-        assertEquals("Should contain 2 pageinfos", 2, infos.size());
+        assertEquals("Should contain 1 pageinfos", 1, infos.size());
     }
 
     @Test
