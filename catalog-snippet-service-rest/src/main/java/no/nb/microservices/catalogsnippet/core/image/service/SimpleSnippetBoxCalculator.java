@@ -30,7 +30,7 @@ public class SimpleSnippetBoxCalculator implements SnippetBoxCalculator {
                 Dimension sDimension = new Dimension(0, (int)sY, pageInfo.getWidth(), (int)sH);
 
                 int lastSnippetBoxIndex = (snippetBoxes.size() - 1);
-                if (snippetBoxes.size() > 0 && sDimension.overlapWith(snippetBoxes.get(lastSnippetBoxIndex).getDimension())) { // Highlight overlaps with previous snippet.
+                if (snippetBoxes.size() > 0 && addedInPage != 0 && sDimension.overlapWith(snippetBoxes.get(lastSnippetBoxIndex).getDimension())) { // Highlight overlaps with previous snippet.
                     Dimension preDim = snippetBoxes.get(lastSnippetBoxIndex).getDimension();
                     Dimension dimension = new Dimension(dim.getX() - preDim.getX(), dim.getY() - preDim.getY(), dim.getW(), dim.getH());
                     Highlight snippetHighlight = new Highlight(highlight.getSentence(), dimension);

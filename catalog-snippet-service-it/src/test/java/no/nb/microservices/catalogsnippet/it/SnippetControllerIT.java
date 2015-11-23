@@ -10,7 +10,6 @@ import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import no.nb.commons.web.util.UserUtils;
 import no.nb.microservices.catalogsnippet.Application;
 import no.nb.microservices.catalogsnippet.model.Snippet;
-import okio.Buffer;
 import org.apache.commons.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -23,15 +22,12 @@ import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
@@ -97,19 +93,6 @@ public class SnippetControllerIT {
         ResponseEntity<Snippet[]> responseEntity = rest.exchange("http://localhost:" + port + "/catalog/snippet?id=0b8501b8e2b822c8ec13558de82aaef9&query=publikum", HttpMethod.GET,
                 new HttpEntity<Object>(defaultHeaders()), Snippet[].class);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-    }
-
-    private MockResponse getMockResponse(String path) {
-        Buffer buffer = new Buffer();
-        try {
-            InputStream inputStream = new ClassPathResource(path).getInputStream();
-            ByteArrayResource byteArrayResource = new ByteArrayResource(IOUtils.toByteArray(inputStream));
-            buffer.write(byteArrayResource.getByteArray());
-        }
-        catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-        return new MockResponse().setBody(buffer);
     }
 
     private HttpHeaders defaultHeaders() {

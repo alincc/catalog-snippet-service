@@ -41,6 +41,32 @@ public class SnippetBoxCalculatorTest {
     }
 
     @Test
+    public void multipleSnippetBoxesTest() {
+        SnippetQuery snippetQuery = new SnippetQuery("URN:NBN:no-nb_digibok_2014020626009", "donald", 10, 10, 3);
+
+        SnippetBoxCalculator calculator = new SimpleSnippetBoxCalculator();
+
+        PageInfo pageInfo1 = new PageInfoBuilder()
+                .withPageId("URN:NBN:no-nb_digibok_2014020626009_0003")
+                .withDimension(1458, 1969)
+                .withSentence("donald")
+                .withHighlight(409, 1608, 138, 39)
+                .withHighlight(1147, 1670, 148, 37)
+                .build();
+
+        PageInfo pageInfo2 = new PageInfoBuilder()
+                .withPageId("URN:NBN:no-nb_digibok_2014020626009_0004")
+                .withDimension(1458, 1969)
+                .withSentence("donald")
+                .withHighlight(309, 1508, 138, 39)
+                .build();
+
+        List<SnippetBox> snippetBoxes = calculator.findSnippetBoxes(Arrays.asList(pageInfo1, pageInfo2), snippetQuery);
+
+        assertEquals(2, snippetBoxes.size());
+    }
+
+    @Test
     public void highlightDefaultTest() {
         SnippetQuery snippetQuery = new SnippetQuery("URN:NBN:no-nb_digibok_2014020626009", "donald", 10, 10, 3);
 
