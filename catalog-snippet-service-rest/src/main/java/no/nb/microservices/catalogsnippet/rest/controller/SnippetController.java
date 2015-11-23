@@ -21,6 +21,6 @@ public class SnippetController {
 
     @RequestMapping(value = "/snippet", method = RequestMethod.GET)
     public ResponseEntity<List<Snippet>> generateSnippets(@Valid SnippetQuery snippetQuery) {
-        return new ResponseEntity<List<Snippet>>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

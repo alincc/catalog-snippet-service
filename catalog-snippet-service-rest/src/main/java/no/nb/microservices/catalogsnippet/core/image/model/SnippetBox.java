@@ -3,11 +3,23 @@ package no.nb.microservices.catalogsnippet.core.image.model;
 import no.nb.microservices.catalogsnippet.model.Dimension;
 import no.nb.microservices.catalogsnippet.model.Highlight;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SnippetBox {
     private Dimension dimension;
-    private List<Highlight> highlights;
+    private List<Highlight> highlights = new ArrayList<>();
+
+    public SnippetBox(Dimension dimension, Highlight highlight) {
+        this.dimension = dimension;
+        this.highlights.add(highlight);
+    }
+
+
+    public SnippetBox(Dimension dimension, List<Highlight> highlights) {
+        this.dimension = dimension;
+        this.highlights = highlights;
+    }
 
     public Dimension getDimension() {
         return dimension;

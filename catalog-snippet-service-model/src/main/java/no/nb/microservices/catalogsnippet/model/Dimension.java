@@ -18,6 +18,10 @@ public class Dimension {
         this.h = h;
     }
 
+    public boolean overlapWith(Dimension dimension) {
+         return x < dimension.getX() + dimension.getW() && x + w > dimension.getX() && y < dimension.getY() + dimension.getH() && y + h > dimension.getY();
+    }
+
     public int getX() {
         return x;
     }
