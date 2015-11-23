@@ -27,6 +27,11 @@
             <version>-6</version>
         </dependency>
         <dependency>
+            <groupId>no.nb.microservices.iiifpresentation</groupId>
+            <artifactId>catalog-iiif-presentation-service-model</artifactId>
+            <version>0.0.1-50</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency> 

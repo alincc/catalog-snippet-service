@@ -26,8 +26,6 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -43,7 +41,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RibbonClientConfiguration.class})
 @WebIntegrationTest("server.port: 0")
-public class IntegrationTest {
+public class SnippetControllerIT {
 
     @Value("${local.server.port}")
     int port;
@@ -54,14 +52,12 @@ public class IntegrationTest {
     @Autowired
     WebApplicationContext context;
 
-    MockMvc mockMvc;
     MockWebServer mockWebServer;
     RestTemplate rest;
 
     @Before
     public void setup() throws Exception {
         rest = new TestRestTemplate();
-        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
         mockWebServer = new MockWebServer();
 
         // Read mock data
@@ -78,8 +74,7 @@ public class IntegrationTest {
                 }
                 else if (request.getPath().equals("/service2/method1")) {
                     return new MockResponse().setBody(mock1).setHeader("Content-Type", "application/hal+json; charset=utf-8");
-                }
-                else {
+                } else {
                     return new MockResponse().setResponseCode(404);
                 }
             }

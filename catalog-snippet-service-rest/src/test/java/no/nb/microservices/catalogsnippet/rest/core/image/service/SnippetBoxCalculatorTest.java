@@ -1,6 +1,6 @@
 package no.nb.microservices.catalogsnippet.rest.core.image.service;
 
-import no.nb.microservices.catalogsnippet.core.catalog.contentsearch.model.PageInfo;
+import no.nb.microservices.catalogsnippet.core.iiif.model.PageInfo;
 import no.nb.microservices.catalogsnippet.core.image.model.SnippetBox;
 import no.nb.microservices.catalogsnippet.core.image.service.SimpleSnippetBoxCalculator;
 import no.nb.microservices.catalogsnippet.core.image.service.SnippetBoxCalculator;

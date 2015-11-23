@@ -1,8 +1,12 @@
 package no.nb.microservices.catalogsnippet.rest.controller;
 
+import no.nb.microservices.catalogsnippet.core.iiif.service.IContentSearchService;
+import no.nb.microservices.catalogsnippet.core.image.service.SnippetBoxCalculator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -17,9 +21,15 @@ public class SnippetControllerTest {
 
     private SnippetController homeController;
 
+    @Mock
+    private IContentSearchService contentSearchService;
+
+    @Mock
+    private SnippetBoxCalculator snippetBoxCalculator;
+
     @Before
     public void setup() {
-        homeController = new SnippetController();
+        homeController = new SnippetController(contentSearchService,snippetBoxCalculator);
         mockMvc = MockMvcBuilders.standaloneSetup(homeController).build();
     }
 

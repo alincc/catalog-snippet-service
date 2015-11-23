@@ -1,4 +1,4 @@
-package no.nb.microservices.catalogsnippet.core.catalog.contentsearch.model;
+package no.nb.microservices.catalogsnippet.core.iiif.model;
 
 import no.nb.microservices.catalogsnippet.model.Dimension;
 

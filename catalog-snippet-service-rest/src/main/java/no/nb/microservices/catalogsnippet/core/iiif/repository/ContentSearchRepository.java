@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface ContentSearchRepository {
 
     @RequestMapping(method = RequestMethod.GET, value = "/catalog/contentsearch/{id}/search")
-    AnnotationList search(@PathVariable String id, @RequestParam String q);
+    AnnotationList search(@PathVariable("id") String id, @RequestParam("q") String q);
 
 }

@@ -1,7 +1,7 @@
 package no.nb.microservices.catalogsnippet.rest.assembler;
 
-import no.nb.microservices.catalogsnippet.core.catalog.contentsearch.model.HighlightInfo;
-import no.nb.microservices.catalogsnippet.core.catalog.contentsearch.model.PageInfo;
+import no.nb.microservices.catalogsnippet.core.iiif.model.HighlightInfo;
+import no.nb.microservices.catalogsnippet.core.iiif.model.PageInfo;
 import no.nb.microservices.catalogsnippet.model.Dimension;
 
 import java.util.Arrays;
