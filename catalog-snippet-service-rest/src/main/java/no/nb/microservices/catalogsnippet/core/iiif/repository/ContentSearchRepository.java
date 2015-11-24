@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient("catalog-iiif-content-search")
 public interface ContentSearchRepository {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/catalog/contentsearch/{id}/search")
+    @RequestMapping(method = RequestMethod.GET, value = "/v1/catalog/contentsearch/{id}/search")
     AnnotationList search(@PathVariable("id") String id, @RequestParam("q") String q);
 
 }

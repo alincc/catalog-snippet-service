@@ -63,13 +63,13 @@ public class SnippetControllerIT {
         final Dispatcher dispatcher = new Dispatcher() {
             @Override
             public MockResponse dispatch(RecordedRequest request) throws InterruptedException {
-                if (request.getPath().equals("/catalog/contentsearch/0b8501b8e2b822c8ec13558de82aaef9/search?q=publikum")) {
+                if (request.getPath().equals("/v1/catalog/contentsearch/0b8501b8e2b822c8ec13558de82aaef9/search?q=publikum")) {
                     return new MockResponse().setBody(contentsearch).setHeader("Content-Type", "application/hal+json; charset=utf-8");
                 }
-                else if (request.getPath().startsWith("/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3")) {
+                else if (request.getPath().startsWith("/v1/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3")) {
                     return new MockResponse().setBody(presentation1).setHeader("Content-Type", "application/hal+json; charset=utf-8");
                 }
-                else if (request.getPath().equals("/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV17")) {
+                else if (request.getPath().equals("/v1/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV17")) {
                     return new MockResponse().setBody(presentation2).setHeader("Content-Type", "application/hal+json; charset=utf-8");
                 } else {
                     return new MockResponse().setResponseCode(404);
@@ -90,7 +90,7 @@ public class SnippetControllerIT {
 
     @Test
     public void helloWorldTest() throws Exception {
-        ResponseEntity<Snippet[]> responseEntity = rest.exchange("http://localhost:" + port + "/catalog/snippet?id=0b8501b8e2b822c8ec13558de82aaef9&query=publikum", HttpMethod.GET,
+        ResponseEntity<Snippet[]> responseEntity = rest.exchange("http://localhost:" + port + "/v1/catalog/snippet?id=0b8501b8e2b822c8ec13558de82aaef9&query=publikum", HttpMethod.GET,
                 new HttpEntity<Object>(defaultHeaders()), Snippet[].class);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }

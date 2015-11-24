@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/search/0/context.json",
-  "@id": "http://{hostname}:{port}/catalog/contentsearch/0b8501b8e2b822c8ec13558de82aaef9/search?q=publikum",
+  "@id": "http://{hostname}:{port}/v1/catalog/contentsearch/0b8501b8e2b822c8ec13558de82aaef9/search?q=publikum",
   "@type": "sc:AnnotationList",
   "resources": [
     {
@@ -11,7 +11,7 @@
         "@type": "cnt:ContentAsText",
         "chars": "publikum"
       },
-      "on": "http://{hostname}:{port}/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#909,493,1346,592"
+      "on": "http://{hostname}:{port}/v1/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#909,493,1346,592"
     },
     {
       "@id": "0b8501b8e2b822c8ec13558de82aaef9",
@@ -21,7 +21,7 @@
         "@type": "cnt:ContentAsText",
         "chars": "publikum"
       },
-      "on": "http://{hostname}:{port}/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#400,1657,558,1717"
+      "on": "http://{hostname}:{port}/v1/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#400,1657,558,1717"
     },
     {
       "@id": "0b8501b8e2b822c8ec13558de82aaef9",
@@ -31,7 +31,7 @@
         "@type": "cnt:ContentAsText",
         "chars": "publikum"
       },
-      "on": "http://{hostname}:{port}/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV17#2198,187,2378,247"
+      "on": "http://{hostname}:{port}/v1/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV17#2198,187,2378,247"
     }
   ]
 }

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/catalog")
+@RequestMapping("/v1/catalog")
 public class SnippetController {
 
     private final IContentSearchService contentSearchService;

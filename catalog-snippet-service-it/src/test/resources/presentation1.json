@@ -1,13 +1,13 @@
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "http://api.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3",
+  "@id": "http://api.nb.no:8765/v1/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3",
   "@type": "sc:Canvas",
   "label": "PAGE",
   "height": 2281,
   "width": 3259,
   "images": [
     {
-      "@id": "http://api.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/annotation/URN:NBN:no-nb_digibok_2014062707144_0003",
+      "@id": "http://api.nb.no:8765/v1/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/annotation/URN:NBN:no-nb_digibok_2014062707144_0003",
       "@type": "oa:Annotation",
       "motivation": "sc:painting",
       "resource": {
@@ -62,7 +62,7 @@
         "height": 2281,
         "width": 3259
       },
-      "on": "http://api.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3"
+      "on": "http://api.nb.no:8765/v1/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3"
     }
   ]
 }
