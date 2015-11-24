@@ -42,9 +42,9 @@ public class ContentSearchServiceTest {
     @Test
     public void whenTextFoundResultShouldNotBeEmpty() {
         Annotation a1 = new Annotation();
-        a1.setOn("http://snoppen.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#909,493,1346,592");
+        a1.setOn("http://api.nb.no/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#909,493,1346,592");
         Annotation a2 = new Annotation();
-        a2.setOn("http://snoppen.nb.no:8765/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#400,1657,558,1717");
+        a2.setOn("http://api.nb.no/catalog/iiif/0b8501b8e2b822c8ec13558de82aaef9/canvas/DIV3#400,1657,558,1717");
         AnnotationList al = new AnnotationList();
         al.setResources(Arrays.asList(a1,a2));
 
