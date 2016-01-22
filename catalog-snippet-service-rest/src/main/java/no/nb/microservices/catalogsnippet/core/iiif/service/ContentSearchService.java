@@ -54,7 +54,7 @@ public class ContentSearchService implements IContentSearchService {
         String pageId = info[0];
         Dimension dimension = new Dimension(Integer.parseInt(dimensions[0]),Integer.parseInt(dimensions[1]),
                 Integer.parseInt(dimensions[2]),Integer.parseInt(dimensions[3]));
-        ResponseEntity<Canvas> entity = restTemplate.getForEntity("http://catalog-iiif-presentation-service/catalog/iiif/{id}/canvas/{pageid}", Canvas.class,annotation.getId(),pageId);
+        ResponseEntity<Canvas> entity = restTemplate.getForEntity("http://catalog-iiif-presentation-service/catalog/v1/iiif/{id}/canvas/{pageid}", Canvas.class,annotation.getId(),pageId);
         int height = entity.getBody().getImages().get(0).getResource().getHeight();
         int width = entity.getBody().getImages().get(0).getResource().getWidth();
 
