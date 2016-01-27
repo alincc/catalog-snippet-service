@@ -34,7 +34,7 @@ public class SnippetControllerTest {
 
     @Test
     public void helloWorldTest() throws Exception{
-        mockMvc.perform(get("/v1/catalog/snippet"))
+        mockMvc.perform(get("/catalog/v1/snippet"))
                 .andExpect(status().is4xxClientError());
     }
 
