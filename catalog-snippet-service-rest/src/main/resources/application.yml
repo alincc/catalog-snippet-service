@@ -3,32 +3,5 @@ info:
     name: catalog-snippet-service
     description: Generates snippets for catalog items
 
-endpoints:
-  restart:
-    enabled: true
-  refresh:
-    enabled: true
-
 server:
-  port: 8108
-
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
----
-spring:
-    profiles: docker
-
-server:
-  port: 8080
-
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+  port: 0
