@@ -4,4 +4,4 @@ info:
     description: Generates snippets for catalog items
 
 server:
-  port: 0
+  port: 8016

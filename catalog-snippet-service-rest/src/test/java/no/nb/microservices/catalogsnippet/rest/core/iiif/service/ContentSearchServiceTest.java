@@ -48,8 +48,8 @@ public class ContentSearchServiceTest {
         AnnotationList al = new AnnotationList();
         al.setResources(Arrays.asList(a1,a2));
 
-        no.nb.microservices.iiifpresentation.model.Annotation a4 = new no.nb.microservices.iiifpresentation.model.Annotation(new NullContext(),"1234","http://hej",new Resource("1",1234,321,null));
-        Canvas canvas = new Canvas(new NullContext(),"1234","label",1,2,Arrays.asList(a4));
+        no.nb.microservices.iiifpresentation.model.Annotation a4 = new no.nb.microservices.iiifpresentation.model.Annotation(new NullContext(),"1234", "", "http://hej",new Resource("1", "", "", 1234,321, "", null));
+        Canvas canvas = new Canvas(new NullContext(),"1234","label",1,2,Arrays.asList(a4), null);
         ResponseEntity<Canvas> entity = new ResponseEntity<>(canvas, HttpStatus.OK);
         when(contentSearchRepository.search("1234","kaffe")).thenReturn(al);
         when(restTemplate.getForEntity(anyString(),eq(Canvas.class),anyString(), anyString())).thenReturn(entity);
