@@ -1,7 +1,12 @@
 info:
-  app:
-    name: catalog-snippet-service
-    description: Generates snippets for catalog items
+    app:
+        name: catalog-snippet-service
+        description: Generates snippets for catalog items
+    build:
+        artifact: ${project.artifactId}
+        name: ${project.name}
+        description: ${project.description}
+        version: ${project.version}
 
 server:
   port: 8016
