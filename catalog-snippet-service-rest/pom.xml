@@ -33,6 +33,11 @@
             <version>0.0.1-19</version>
         </dependency>
         <dependency>
+            <groupId>no.nb.metrics</groupId>
+            <artifactId>metrics-annotations</artifactId>
+            <version>0.0.1-3</version>
+        </dependency>        
+        <dependency>
             <groupId>no.nb.microservices.iiifpresentation</groupId>
             <artifactId>catalog-iiif-presentation-service-model</artifactId>
             <version>0.0.1-77</version>

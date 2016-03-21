@@ -5,3 +5,11 @@ info:
 
 server:
   port: 8016
+
+zipkin:
+    collector-hostname: localhost
+    
+monitoring:
+    hostname: localhost
+    port: 2003
+    period: 1  
